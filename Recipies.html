@@ -1,0 +1,1512 @@
+<!doctype html>
+
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr"
+  data-theme="theme-default" data-assets-path="/assets/" data-template="vertical-menu-template" data-style="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <title>Dashboard - Logistics | Materialize - Material Design HTML Admin Template</title>
+
+  <meta name="description" content="" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="/assets/vendor/fonts/remixicon/remixicon.css" />
+  <link rel="stylesheet" href="/assets/vendor/fonts/flag-icons.css" />
+
+  <!-- Menu waves for no-customizer fix -->
+  <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="/assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="/assets/css/demo.css" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
+  <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+  <link rel="stylesheet" href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+  <link rel="stylesheet" href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+  <link rel="stylesheet" href="/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+
+  <!-- Page CSS -->
+
+  <link rel="stylesheet" href="/assets/vendor/css/pages/app-logistics-dashboard.css" />
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="/assets/vendor/css/pages/cards-statistics.css" />
+  <link rel="stylesheet" href="/assets/vendor/css/pages/cards-analytics.css" />
+
+  <!-- Helpers -->
+  <script src="/assets/vendor/js/helpers.js"></script>
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+  <script src="/assets/vendor/js/template-customizer.js"></script>
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="/assets/js/config.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    .sidebar-form {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 350px;
+      height: 100%;
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      transition: right 0.6s ease-in-out;
+      z-index: 999999999;
+      overflow-y: scroll;
+    }
+
+    .sidebar-form.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1050;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .blur-background {
+      filter: blur(4px);
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+      <!-- Menu -->
+
+      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+        <div class="app-brand demo">
+          <a href="index.html" class="app-brand-link">
+            <span class="app-brand-logo demo">
+              <span style="color: var(--bs-primary)">
+                <svg width="268" height="150" viewBox="0 0 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M30.0944 2.22569C29.0511 0.444187 26.7508 -0.172113 24.9566 0.849138C23.1623 1.87039 22.5536 4.14247 23.5969 5.92397L30.5368 17.7743C31.5801 19.5558 33.8804 20.1721 35.6746 19.1509C37.4689 18.1296 38.0776 15.8575 37.0343 14.076L30.0944 2.22569Z"
+                    fill="currentColor" />
+                  <path
+                    d="M30.171 2.22569C29.1277 0.444187 26.8274 -0.172113 25.0332 0.849138C23.2389 1.87039 22.6302 4.14247 23.6735 5.92397L30.6134 17.7743C31.6567 19.5558 33.957 20.1721 35.7512 19.1509C37.5455 18.1296 38.1542 15.8575 37.1109 14.076L30.171 2.22569Z"
+                    fill="url(#paint0_linear_2989_100980)" fill-opacity="0.4" />
+                  <path
+                    d="M22.9676 2.22569C24.0109 0.444187 26.3112 -0.172113 28.1054 0.849138C29.8996 1.87039 30.5084 4.14247 29.4651 5.92397L22.5251 17.7743C21.4818 19.5558 19.1816 20.1721 17.3873 19.1509C15.5931 18.1296 14.9843 15.8575 16.0276 14.076L22.9676 2.22569Z"
+                    fill="currentColor" />
+                  <path
+                    d="M14.9558 2.22569C13.9125 0.444187 11.6122 -0.172113 9.818 0.849138C8.02377 1.87039 7.41502 4.14247 8.45833 5.92397L15.3983 17.7743C16.4416 19.5558 18.7418 20.1721 20.5361 19.1509C22.3303 18.1296 22.9391 15.8575 21.8958 14.076L14.9558 2.22569Z"
+                    fill="currentColor" />
+                  <path
+                    d="M14.9558 2.22569C13.9125 0.444187 11.6122 -0.172113 9.818 0.849138C8.02377 1.87039 7.41502 4.14247 8.45833 5.92397L15.3983 17.7743C16.4416 19.5558 18.7418 20.1721 20.5361 19.1509C22.3303 18.1296 22.9391 15.8575 21.8958 14.076L14.9558 2.22569Z"
+                    fill="url(#paint1_linear_2989_100980)" fill-opacity="0.4" />
+                  <path
+                    d="M7.82901 2.22569C8.87231 0.444187 11.1726 -0.172113 12.9668 0.849138C14.7611 1.87039 15.3698 4.14247 14.3265 5.92397L7.38656 17.7743C6.34325 19.5558 4.04298 20.1721 2.24875 19.1509C0.454514 18.1296 -0.154233 15.8575 0.88907 14.076L7.82901 2.22569Z"
+                    fill="currentColor" />
+                  <defs>
+                    <linearGradient id="paint0_linear_2989_100980" x1="5.36642" y1="0.849138" x2="10.532" y2="24.104"
+                      gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-opacity="1" />
+                      <stop offset="1" stop-opacity="0" />
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_2989_100980" x1="5.19475" y1="0.849139" x2="10.3357" y2="24.1155"
+                      gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-opacity="1" />
+                      <stop offset="1" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+            </span>
+            <span class="app-brand-text demo menu-text fw-semibold ms-2">Flow108</span>
+          </a>
+
+          <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.47365 11.7183C8.11707 12.0749 8.11707 12.6531 8.47365 13.0097L12.071 16.607C12.4615 16.9975 12.4615 17.6305 12.071 18.021C11.6805 18.4115 11.0475 18.4115 10.657 18.021L5.83009 13.1941C5.37164 12.7356 5.37164 11.9924 5.83009 11.5339L10.657 6.707C11.0475 6.31653 11.6805 6.31653 12.071 6.707C12.4615 7.09747 12.4615 7.73053 12.071 8.121L8.47365 11.7183Z"
+                fill-opacity="0.9" />
+              <path
+                d="M14.3584 11.8336C14.0654 12.1266 14.0654 12.6014 14.3584 12.8944L18.071 16.607C18.4615 16.9975 18.4615 17.6305 18.071 18.021C17.6805 18.4115 17.0475 18.4115 16.657 18.021L11.6819 13.0459C11.3053 12.6693 11.3053 12.0587 11.6819 11.6821L16.657 6.707C17.0475 6.31653 17.6805 6.31653 18.071 6.707C18.4615 7.09747 18.4615 7.73053 18.071 8.121L14.3584 11.8336Z"
+                fill-opacity="0.4" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="menu-inner-shadow"></div>
+
+        <ul class="menu-inner py-1">
+          <!-- Dashboards -->
+          <li class="menu-item  ">
+            <a href="/index.html" class="menu-link">
+              <i class="menu-icon tf-icons ri-home-smile-line"></i>
+              <div data-i18n="Dashboards">Dashboards</div>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="./users.html" class="menu-link ">
+              <i class="menu-icon tf-icons ri-group-line"></i>
+              <div data-i18n="Users">Users</div>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="./message.html" class="menu-link ">
+              <i class="menu-icon ri-message-2-line"></i>
+              <div data-i18n="Message">Message</div>
+            </a>
+          </li>
+
+
+          <li class="menu-item">
+            <a href="/subscription.html" class="menu-link ">
+              <i class="menu-icon tf-icons ri-bank-card-line"></i>
+              <div data-i18n="Subscriptions">Subscriptions</div>
+            </a>
+          </li>
+
+          <li class="menu-item ">
+            <a href="./exercise.html" class="menu-link ">
+              <i class="menu-icon ri-heart-pulse-line"></i>
+              <div data-i18n="Exercise">Exercise</div>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="./forum.html" class="menu-link ">
+              <i class="menu-icon ri-megaphone-line"></i>
+              <div data-i18n="Forumn">Forumn</div>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="./questions.html" class="menu-link ">
+              <i class="menu-icon ri-question-line"></i>
+              <div data-i18n="Questions">Questions</div>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="./coupons.html" class="menu-link ">
+              <i class="menu-icon ri-price-tag-3-line"></i>
+              <div data-i18n="Coupons">Coupons</div>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="./pushNotification.html" class="menu-link ">
+              <i class="menu-icon ri-notification-3-line"></i>
+              <div data-i18n="Push Notifications">Push Notifications</div>
+            </a>
+          </li>
+
+
+          <li class="menu-item active">
+            <a href="./dietplans.html" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons ri-restaurant-line"></i>
+              <div data-i18n="Diet">Diet</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="./dietplans.html" class="menu-link">
+                  <div data-i18n="Diet Plans">Diet Plans</div>
+                </a>
+              </li>
+              <li class="menu-item active">
+                <a href="./Recipies.html" class="menu-link">
+                  <div data-i18n="Recipies">Recipies</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </aside>
+      <!-- / Menu -->
+
+      <!-- Layout container -->
+      <div class="layout-page">
+        <!-- Navbar -->
+
+        <nav
+          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+          id="layout-navbar">
+          <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+            <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+              <i class="ri-menu-fill ri-22px"></i>
+            </a>
+          </div>
+
+          <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+            <!-- Search -->
+            <div class="navbar-nav align-items-center">
+              <div class="nav-item navbar-search-wrapper mb-0">
+                <a class="nav-item nav-link search-toggler fw-normal px-0" href="javascript:void(0);">
+                  <i class="ri-search-line ri-22px scaleX-n1-rtl me-3"></i>
+                  <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
+                </a>
+              </div>
+            </div>
+            <!-- /Search -->
+
+            <ul class="navbar-nav flex-row align-items-center ms-auto">
+              <!-- Language -->
+              <li class="nav-item dropdown-language dropdown">
+                <a class="nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow"
+                  href="javascript:void(0);" data-bs-toggle="dropdown">
+                  <i class="ri-translate-2 ri-22px"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" href="javascript:void(0);" data-language="en" data-text-direction="ltr">
+                      <span class="align-middle">English</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="javascript:void(0);" data-language="fr" data-text-direction="ltr">
+                      <span class="align-middle">French</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="javascript:void(0);" data-language="ar" data-text-direction="rtl">
+                      <span class="align-middle">Arabic</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="javascript:void(0);" data-language="de" data-text-direction="ltr">
+                      <span class="align-middle">German</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!--/ Language -->
+
+              <!-- Style Switcher -->
+              <li class="nav-item dropdown-style-switcher dropdown me-1 me-xl-0">
+                <a class="nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow"
+                  href="javascript:void(0);" data-bs-toggle="dropdown">
+                  <i class="ri-22px"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
+                  <li>
+                    <a class="dropdown-item" href="javascript:void(0);" data-theme="light">
+                      <span class="align-middle"><i class="ri-sun-line ri-22px me-3"></i>Light</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">
+                      <span class="align-middle"><i class="ri-moon-clear-line ri-22px me-3"></i>Dark</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
+                      <span class="align-middle"><i class="ri-computer-line ri-22px me-3"></i>System</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- / Style Switcher-->
+
+              <!-- Quick links  -->
+              <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-1 me-xl-0">
+                <a class="nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow"
+                  href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                  aria-expanded="false">
+                  <i class="ri-star-smile-line ri-22px"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end py-0">
+                  <div class="dropdown-menu-header border-bottom py-50">
+                    <div class="dropdown-header d-flex align-items-center py-2">
+                      <h6 class="mb-0 me-auto">Shortcuts</h6>
+                      <a href="javascript:void(0)"
+                        class="btn btn-text-secondary rounded-pill btn-icon dropdown-shortcuts-add text-heading"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Add shortcuts"><i
+                          class="ri-add-line ri-24px"></i></a>
+                    </div>
+                  </div>
+                  <div class="dropdown-shortcuts-list scrollable-container">
+                    <div class="row row-bordered overflow-visible g-0">
+                      <div class="dropdown-shortcuts-item col">
+                        <span class="dropdown-shortcuts-icon rounded-circle mb-3">
+                          <i class="ri-calendar-line ri-26px text-heading"></i>
+                        </span>
+                        <a href="app-calendar.html" class="stretched-link">Calendar</a>
+                        <small class="mb-0">Appointments</small>
+                      </div>
+                      <div class="dropdown-shortcuts-item col">
+                        <span class="dropdown-shortcuts-icon rounded-circle mb-3">
+                          <i class="ri-file-text-line ri-26px text-heading"></i>
+                        </span>
+                        <a href="app-invoice-list.html" class="stretched-link">Invoice App</a>
+                        <small class="mb-0">Manage Accounts</small>
+                      </div>
+                    </div>
+                    <div class="row row-bordered overflow-visible g-0">
+                      <div class="dropdown-shortcuts-item col">
+                        <span class="dropdown-shortcuts-icon rounded-circle mb-3">
+                          <i class="ri-user-line ri-26px text-heading"></i>
+                        </span>
+                        <a href="app-user-list.html" class="stretched-link">User App</a>
+                        <small class="mb-0">Manage Users</small>
+                      </div>
+                      <div class="dropdown-shortcuts-item col">
+                        <span class="dropdown-shortcuts-icon rounded-circle mb-3">
+                          <i class="ri-computer-line ri-26px text-heading"></i>
+                        </span>
+                        <a href="app-access-roles.html" class="stretched-link">Role Management</a>
+                        <small class="mb-0">Permission</small>
+                      </div>
+                    </div>
+                    <div class="row row-bordered overflow-visible g-0">
+                      <div class="dropdown-shortcuts-item col">
+                        <span class="dropdown-shortcuts-icon rounded-circle mb-3">
+                          <i class="ri-pie-chart-2-line ri-26px text-heading"></i>
+                        </span>
+                        <a href="index.html" class="stretched-link">Dashboard</a>
+                        <small class="mb-0">Analytics</small>
+                      </div>
+                      <div class="dropdown-shortcuts-item col">
+                        <span class="dropdown-shortcuts-icon rounded-circle mb-3">
+                          <i class="ri-settings-4-line ri-26px text-heading"></i>
+                        </span>
+                        <a href="pages-account-settings-account.html" class="stretched-link">Setting</a>
+                        <small class="mb-0">Account Settings</small>
+                      </div>
+                    </div>
+                    <div class="row row-bordered overflow-visible g-0">
+                      <div class="dropdown-shortcuts-item col">
+                        <span class="dropdown-shortcuts-icon rounded-circle mb-3">
+                          <i class="ri-question-line ri-26px text-heading"></i>
+                        </span>
+                        <a href="pages-faq.html" class="stretched-link">FAQs</a>
+                        <small class="mb-0">FAQs & Articles</small>
+                      </div>
+                      <div class="dropdown-shortcuts-item col">
+                        <span class="dropdown-shortcuts-icon rounded-circle mb-3">
+                          <i class="ri-tv-2-line ri-26px text-heading"></i>
+                        </span>
+                        <a href="modal-examples.html" class="stretched-link">Modals</a>
+                        <small class="mb-0">Useful Popups</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- Quick links -->
+
+              <!-- Notification -->
+              <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-4 me-xl-1">
+                <a class="nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow"
+                  href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                  aria-expanded="false">
+                  <i class="ri-notification-2-line ri-22px"></i>
+                  <span
+                    class="position-absolute top-0 start-50 translate-middle-y badge badge-dot bg-danger mt-2 border"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end py-0">
+                  <li class="dropdown-menu-header border-bottom py-50">
+                    <div class="dropdown-header d-flex align-items-center py-2">
+                      <h6 class="mb-0 me-auto">Notification</h6>
+                      <div class="d-flex align-items-center">
+                        <span class="badge rounded-pill bg-label-primary fs-xsmall me-2">8 New</span>
+                        <a href="javascript:void(0)"
+                          class="btn btn-text-secondary rounded-pill btn-icon dropdown-notifications-all"
+                          data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i
+                            class="ri-mail-open-line text-heading ri-20px"></i></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="dropdown-notifications-list scrollable-container">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <img src="/assets/img/avatars/1.png" alt class="rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="small mb-1">Congratulation Lettie 🎉</h6>
+                            <small class="mb-1 d-block text-body">Won the monthly best seller gold badge</small>
+                            <small class="text-muted">1h ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <span class="avatar-initial rounded-circle bg-label-danger">CF</span>
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-1 small">Charles Franklin</h6>
+                            <small class="mb-1 d-block text-body">Accepted your connection</small>
+                            <small class="text-muted">12hr ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <img src="/assets/img/avatars/2.png" alt class="rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-1 small">New Message ✉️</h6>
+                            <small class="mb-1 d-block text-body">You have new message from Natalie</small>
+                            <small class="text-muted">1h ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <span class="avatar-initial rounded-circle bg-label-success"><i
+                                  class="ri-shopping-cart-2-line"></i></span>
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-1 small">Whoo! You have new order 🛒</h6>
+                            <small class="mb-1 d-block text-body">ACME Inc. made new order $1,154</small>
+                            <small class="text-muted">1 day ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <img src="/assets/img/avatars/9.png" alt class="rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-1 small">Application has been approved 🚀</h6>
+                            <small class="mb-1 d-block text-body">Your ABC project application has been
+                              approved.</small>
+                            <small class="text-muted">2 days ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <span class="avatar-initial rounded-circle bg-label-success"><i
+                                  class="ri-pie-chart-2-line"></i></span>
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-1 small">Monthly report is generated</h6>
+                            <small class="mb-1 d-block text-body">July monthly financial report is generated </small>
+                            <small class="text-muted">3 days ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <img src="/assets/img/avatars/5.png" alt class="rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-1 small">Send connection request</h6>
+                            <small class="mb-1 d-block text-body">Peter sent you connection request</small>
+                            <small class="text-muted">4 days ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <img src="/assets/img/avatars/6.png" alt class="rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-1 small">New message from Jane</h6>
+                            <small class="mb-1 d-block text-body">Your have new message from Jane</small>
+                            <small class="text-muted">5 days ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar">
+                              <span class="avatar-initial rounded-circle bg-label-warning"><i
+                                  class="ri-error-warning-line"></i></span>
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-1 small">CPU is running high</h6>
+                            <small class="mb-1 d-block text-body">CPU Utilization Percent is currently at
+                              88.63%,</small>
+                            <small class="text-muted">5 days ago</small>
+                          </div>
+                          <div class="flex-shrink-0 dropdown-notifications-actions">
+                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                class="badge badge-dot"></span></a>
+                            <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                class="ri-close-line ri-20px"></span></a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="border-top">
+                    <div class="d-grid p-4">
+                      <a class="btn btn-primary btn-sm d-flex" href="javascript:void(0);">
+                        <small class="align-middle">View all notifications</small>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!--/ Notification -->
+
+              <!-- User -->
+              <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                  <div class="avatar avatar-online">
+                    <img src="/assets/img/avatars/1.png" alt class="rounded-circle" />
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" href="pages-account-settings-account.html">
+                      <div class="d-flex">
+                        <div class="flex-shrink-0 me-2">
+                          <div class="avatar avatar-online">
+                            <img src="/assets/img/avatars/1.png" alt class="rounded-circle" />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1">
+                          <span class="fw-medium d-block small">John Doe</span>
+                          <small class="text-muted">Admin</small>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="dropdown-divider"></div>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="pages-profile-user.html">
+                      <i class="ri-user-3-line ri-22px me-3"></i><span class="align-middle">My Profile</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="pages-account-settings-account.html">
+                      <i class="ri-settings-4-line ri-22px me-3"></i><span class="align-middle">Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="pages-account-settings-billing.html">
+                      <span class="d-flex align-items-center align-middle">
+                        <i class="flex-shrink-0 ri-file-text-line ri-22px me-3"></i>
+                        <span class="flex-grow-1 align-middle">Billing</span>
+                        <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger">4</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="dropdown-divider"></div>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="pages-pricing.html">
+                      <i class="ri-money-dollar-circle-line ri-22px me-3"></i><span class="align-middle">Pricing</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="pages-faq.html">
+                      <i class="ri-question-line ri-22px me-3"></i><span class="align-middle">FAQ</span>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="d-grid px-4 pt-2 pb-1">
+                      <a class="btn btn-sm btn-danger d-flex" href="auth-login-cover.html" target="_blank">
+                        <small class="align-middle">Logout</small>
+                        <i class="ri-logout-box-r-line ms-2 ri-16px"></i>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!--/ User -->
+            </ul>
+          </div>
+
+          <!-- Search Small Screens -->
+          <div class="navbar-search-wrapper search-input-wrapper d-none">
+            <input type="text" class="form-control search-input container-xxl border-0" placeholder="Search..."
+              aria-label="Search..." />
+            <i class="ri-close-fill search-toggler cursor-pointer"></i>
+          </div>
+        </nav>
+
+        <!-- / Navbar -->
+
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+          <!-- Content -->
+
+          <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="app-academy">
+              <div class="card mb-6">
+                <div class="card-header d-flex flex-wrap justify-content-between gap-4">
+                  <div class="card-title mb-0 me-1">
+                    <h5 class="mb-0">Recipies</h5>
+                    <p class="mb-0 text-body">
+                      Stay tuned for more recipies
+                    </p>
+                  </div>
+                  <div class="d-flex justify-content-md-end align-items-center gap-6 flex-wrap">
+                    <select class="form-select form-select-sm w-px-250">
+                      <option value="all courses">All Recipie</option>
+                      <option value="ui/ux">UI/UX</option>
+                      <option value="seo">SEO</option>
+                      <option value="web">Web</option>
+                      <option value="music">Music</option>
+                      <option value="painting">Painting</option>
+                    </select>
+
+                    <div class="form-check form-switch mb-0">
+                      <button class="btn btn-outline-primary" id="openExerciseForm" data-bs-toggle="modal" data-bs-target="#exerciseModal">
+                        Add Recipie
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body mt-1">
+                  <div class="row gy-6 mb-6">
+                    <div class="col-sm-6 col-lg-4">
+                      <div class="card p-2 h-100 shadow-none border rounded-3">
+                        <div class="rounded-4 text-center mb-5">
+                          <a href="app-academy-course-details.html"><img class="img-fluid"
+                              src="./assets/img/avatars/chicken-7249273_1280.jpg" alt="tutor image 1" /></a>
+                        </div>
+                        <div class="card-body p-3 pt-0">
+                          <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="badge rounded-pill bg-label-primary">Lunch</span>
+                            <p class="d-flex align-items-center justify-content-center fw-medium gap-1 mb-0">
+                              4.4
+                              <span class="text-warning"><i class="ri-star-s-fill ri-24px me-1"></i></span><span
+                                class="fw-normal">(1.23k)</span>
+                            </p>
+                          </div>
+                          <a href="app-academy-course-details.html" class="h5">Chicken Curry Rice
+                          </a>
+                          <p class="mt-1">
+                            Chicken Curry Rice is a flavorful dish rich in protein and spices. Easy to make, nutritious,
+                            perfect for meal prep, and satisfying. Loved by all, it blends taste with health
+                            beautifully.
+                          </p>
+                          <p class="d-flex align-items-center mb-1">
+                            <i class="ri-time-line ri-20px me-1"></i>45-60
+                            minutes
+                          </p>
+
+                          <p>
+                            <a href="#" id="openRecipeModal"ex
+                              class="text-primary fw-bold text-decoration-underline">Recipe</a>
+                          </p>
+
+                          <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                              <div class="modal-content border-0 rounded-4 shadow">
+                                <div class="modal-header border-0 pb-0">
+                                  <h5 class="modal-title fw-bold" id="recipeModalLabel">Chicken Curry Rice</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body p-4">
+                                  <!-- Image -->
+                                  <div class="text-center mb-4">
+                                    <img class="img-fluid rounded-4 shadow-sm" src="./assets/img/avatars/chicken-7249273_1280.jpg"
+                                      alt="Chicken Curry Rice" style="max-height: 300px; object-fit: cover;" />
+                                  </div>
+
+                                  <!-- Badge and Rating -->
+                                  <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge rounded-pill bg-label-primary fs-6 px-3 py-2">Low</span>
+                                    <p class="mb-0 d-flex align-items-center gap-1 fw-medium fs-6">
+                                      4.4
+                                      <span class="text-warning"><i class="ri-star-s-fill ri-20px"></i></span>
+                                      <span class="fw-normal">(1.23k)</span>
+                                    </p>
+                                  </div>
+
+                                  <!-- Description -->
+                                  <p class="mb-3">
+                                    Chicken Curry Rice is a flavorful dish rich in protein and spices. Easy to make,
+                                    nutritious, perfect for meal prep, and satisfying. Loved by all, it blends taste
+                                    with health beautifully.
+                                  </p>
+
+                                  <!-- Time -->
+                                  <p class="d-flex align-items-center mb-4 text-muted">
+                                    <i class="ri-time-line ri-20px me-2"></i> 45-60 minutes
+                                  </p>
+
+                                  <!-- Recipe Steps -->
+                                  <h6 class="fw-bold mb-2">Steps:</h6>
+                                  <ul class="ps-3 mb-0">
+                                    <li>Marinate chicken with yogurt, turmeric, chili, and salt</li>
+                                    <li>Heat oil and sauté onions until golden brown</li>
+                                    <li>Add ginger-garlic paste and cook till fragrant</li>
+                                    <li>Mix in tomatoes and cook until soft and pulpy</li>
+                                    <li>Add spices like cumin, coriander, and garam masala</li>
+                                    <li>Stir in marinated chicken and cook until sealed</li>
+                                    <li>Pour in water and simmer until chicken is tender</li>
+                                    <li>Cook rice separately with a pinch of salt</li>
+                                    <li>Serve hot chicken curry over freshly steamed rice</li>
+                                    <li>Garnish with coriander leaves and a dash of lemon juice</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                          <div class="d-flex justify-content-end gap-2 mt-3">
+                            <button class="btn btn-outline-primary edit-recipe-btn" data-bs-toggle="modal"
+                              data-bs-target="#editRecipeModal" data-name="Chicken Curry Rice"
+                              data-desc="Chicken Curry Rice is a flavorful dish rich in protein and spices..."
+                              data-duration="45-60 minutes"
+                              data-steps="Marinate chicken with yogurt, turmeric, chili, and salt\nHeat oil and sauté onions until golden brown\n...">
+                              <i class="ri-pencil-line ri-16px lh-1 scaleX-n1-rtl"></i>
+                            </button>
+
+                            <!-- Delete Button -->
+                            <button class="btn btn-outline-danger d-flex align-items-center">
+                              <i class="ri-delete-bin-line ri-16px lh-1 scaleX-n1-rtl"></i>
+                            </button>
+
+                            <!-- Edit Button -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4">
+                      <div class="card shadow-none border p-2 h-100 rounded-3">
+                        <div class="rounded-4 text-center mb-5">
+                          <a href="app-academy-course-details.html"><img class="img-fluid"
+                              src="./assets/img/avatars/mushrooms-2459679_1280.jpg" alt="tutor image 2" /></a>
+                        </div>
+                        <div class="card-body p-3 pt-0">
+                          <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="badge rounded-pill bg-label-danger">Diner</span>
+                            <p class="d-flex align-items-center justify-content-center fw-medium gap-1 mb-0">
+                              4.4
+                              <span class="text-warning"><i class="ri-star-s-fill ri-24px me-1"></i></span><span
+                                class="fw-normal">(1.23k)</span>
+                            </p>
+                          </div>
+                          <a class="h5" href="app-academy-course-details.html">Mushroom Curry</a>
+                          <p class="mt-1">
+                            Mushroom curry is a delicious vegetarian dish packed with earthy flavors, aromatic spices,
+                            and a creamy texture. It’s easy to cook, protein-rich, and perfect for lunch or dinner
+                            meals.
+                          </p>
+                          <p class="d-flex align-items-center mb-1">
+                            <i class="ri-time-line ri-20px me-1"></i>45 Mins
+                          </p>
+
+                          <p>
+                            <a href="#" id="openMushroomModal"
+                              class="text-primary fw-bold text-decoration-underline">Recipe</a>
+                          </p>
+                          <!-- Modal -->
+                          <div class="modal fade" id="mushroomModal" tabindex="-1" aria-labelledby="mushroomModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                              <div class="modal-content border-0 rounded-4 shadow">
+
+                                <!-- Header -->
+                                <div class="modal-header border-0 pb-0">
+                                  <h5 class="modal-title fw-bold" id="mushroomModalLabel">Mushroom Curry</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </div>
+
+                                <!-- Body -->
+                                <div class="modal-body p-4">
+
+                                  <!-- Image -->
+                                  <div class="text-center mb-4">
+                                    <img class="img-fluid rounded-4 shadow-sm" src="./assets/img/avatars/mushrooms-2459679_1280.jpg"
+                                      alt="Mushroom Curry" style="max-height: 300px; object-fit: cover;" />
+                                  </div>
+
+                                  <!-- Tags & Ratings -->
+                                  <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge rounded-pill bg-label-success">Medium</span>
+                                    <p class="d-flex align-items-center fw-medium gap-1 mb-0">
+                                      4.6
+                                      <span class="text-warning"><i class="ri-star-s-fill ri-24px me-1"></i></span>
+                                      <span class="fw-normal">(980)</span>
+                                    </p>
+                                  </div>
+
+                                  <!-- Description -->
+                                  <p class="mb-3">
+                                    Mushroom curry is a delicious vegetarian dish packed with earthy flavors, aromatic
+                                    spices, and a creamy texture. It’s easy to cook, protein-rich, and perfect for lunch
+                                    or dinner meals.
+                                  </p>
+
+                                  <!-- Recipe Steps -->
+                                  <h6 class="fw-bold mb-2">Steps:</h6>
+                                  <ul class="ps-3 mb-0">
+                                    <li>Clean and slice mushrooms evenly</li>
+                                    <li>Heat oil in a pan and sauté onions till golden</li>
+                                    <li>Add ginger-garlic paste and cook until the raw smell disappears</li>
+                                    <li>Mix in chopped tomatoes and cook until soft</li>
+                                    <li>Stir in spices like turmeric, cumin, coriander, and garam masala</li>
+                                    <li>Add mushrooms and cook until they release water</li>
+                                    <li>Pour in a little water or coconut milk for a creamy base</li>
+                                    <li>Let the curry simmer for 10–15 minutes</li>
+                                    <li>Adjust salt and spice levels to taste</li>
+                                    <li>Garnish with fresh coriander and serve with rice or roti</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="d-flex justify-content-end gap-2 mt-3">
+                            <button class="btn btn-outline-primary edit-recipe-btn" data-bs-toggle="modal"
+                              data-bs-target="#editRecipeModal" data-name="Mushroom Curry"
+                              data-desc="Mushroom curry is a delicious vegetarian dish packed with earthy flavors, aromatic spices, and a creamy texture. It’s easy to cook, protein-rich, and perfect for lunch or dinner meals."
+                              data-duration="45 Mins"
+                              data-steps="Clean and slice mushrooms evenly\nHeat oil in a pan and sauté onions till golden\nAdd ginger-garlic paste and cook until the raw smell disappears\nMix in chopped tomatoes and cook until soft\nStir in spices like turmeric, cumin, coriander, and garam masala\nAdd mushrooms and cook until they release water\nPour in a little water or coconut milk for a creamy base\nLet the curry simmer for 10–15 minutes\nAdjust salt and spice levels to taste\nGarnish with fresh coriander and serve with rice or roti">
+                              <i class="ri-pencil-line ri-16px lh-1 scaleX-n1-rtl"></i>
+                            </button>
+
+                            <!-- Delete Button -->
+                            <button class="btn btn-outline-danger d-flex align-items-center">
+                              <i class="ri-delete-bin-line ri-16px lh-1 scaleX-n1-rtl"></i>
+                            </button>
+
+                            <!-- Edit Button -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                      <div class="card shadow-none border p-2 h-100 rounded-3">
+                        <div class="rounded-4 text-center mb-5">
+                          <a href="app-academy-course-details.html"><img class="img-fluid"
+                              src="./assets/img/avatars/gastronomy-2760200_1280.jpg" alt="tutor image 3" /></a>
+                        </div>
+                        <div class="card-body p-3 pt-0">
+                          <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="badge rounded-pill bg-label-success">Evening Snacks / Breakfast</span>
+                            <p class="d-flex align-items-center justify-content-center fw-medium gap-1 mb-0">
+                              5
+                              <span class="text-warning"><i class="ri-star-s-fill ri-24px me-1"></i></span><span
+                                class="fw-normal"> (12)</span>
+                            </p>
+                          </div>
+                          <a class="h5" href="app-academy-course-details.html">Sproutes Salad</a>
+                          <p class="mt-1">
+                            Sprouts Salad is a healthy, crunchy, and refreshing dish packed with proteins and nutrients.
+                            It's quick to make, perfect for weight loss, and ideal as a light lunch or snack.
+                          </p>
+                          <p class="d-flex align-items-center mb-1">
+                            <i class="ri-time-line ri-20px me-1"></i>10-15 Min
+                          </p>
+
+                          <p>
+                            <a href="#" id="openSproutsModal"
+                              class="text-primary fw-bold text-decoration-underline">Recipe</a>
+                          </p>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="sproutsModal" tabindex="-1" aria-labelledby="sproutsModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                              <div class="modal-content border-0 rounded-4 shadow">
+
+                                <!-- Header -->
+                                <div class="modal-header border-0 pb-0">
+                                  <h5 class="modal-title fw-bold" id="sproutsModalLabel">Sprouts Salad</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </div>
+
+                                <!-- Body -->
+                                <div class="modal-body p-4">
+
+                                  <!-- Image -->
+                                  <div class="text-center mb-4">
+                                    <img class="img-fluid rounded-4 shadow-sm" src="./assets/img/avatars/gastronomy-2760200_1280.jpg"
+                                      alt="Sprouts Salad" style="max-height: 300px; object-fit: cover;" />
+                                  </div>
+
+                                  <!-- Tags & Ratings -->
+                                  <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge rounded-pill bg-label-info">Easy</span>
+                                    <p class="d-flex align-items-center fw-medium gap-1 mb-0">
+                                      4.8
+                                      <span class="text-warning"><i class="ri-star-s-fill ri-24px me-1"></i></span>
+                                      <span class="fw-normal">(2.1k)</span>
+                                    </p>
+                                  </div>
+
+                                  <!-- Description -->
+                                  <p class="mb-3">
+                                    Sprouts Salad is a healthy, crunchy, and refreshing dish packed with proteins and
+                                    nutrients. It's quick to make, perfect for weight loss, and ideal as a light lunch
+                                    or snack.
+                                  </p>
+
+                                  <!-- Recipe Steps -->
+                                  <h6 class="fw-bold mb-2">Steps:</h6>
+                                  <ul class="ps-3 mb-0">
+                                    <li>Rinse and soak green gram (moong) sprouts overnight</li>
+                                    <li>Steam or lightly boil sprouts until slightly tender (optional)</li>
+                                    <li>Chop onions, tomatoes, cucumbers, and green chilies finely</li>
+                                    <li>In a bowl, combine sprouts with all chopped veggies</li>
+                                    <li>Add lemon juice and sprinkle salt and chaat masala</li>
+                                    <li>Mix in coriander leaves and mint for extra freshness</li>
+                                    <li>Add a dash of pepper and cumin powder for flavor</li>
+                                    <li>Toss everything gently and chill for 10 minutes</li>
+                                    <li>Optionally top with roasted peanuts or pomegranate</li>
+                                    <li>Serve cold for a crunchy, nutritious treat</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="d-flex justify-content-end gap-2 mt-3">
+                            <button class="btn btn-outline-primary edit-recipe-btn" data-bs-toggle="modal"
+                              data-bs-target="#editRecipeModal" data-name="Sprouts Salad"
+                              data-desc="Sprouts Salad is a healthy, crunchy, and refreshing dish packed with proteins and nutrients. It's quick to make, perfect for weight loss, and ideal as a light lunch or snack."
+                              data-duration="10-15 Min"
+                              data-steps="Rinse and soak green gram (moong) sprouts overnight\nSteam or lightly boil sprouts until slightly tender (optional)\nChop onions, tomatoes, cucumbers, and green chilies finely\nIn a bowl, combine sprouts with all chopped veggies\nAdd lemon juice and sprinkle salt and chaat masala\nMix in coriander leaves and mint for extra freshness\nAdd a dash of pepper and cumin powder for flavor\nToss everything gently and chill for 10 minutes\nOptionally top with roasted peanuts or pomegranate\nServe cold for a crunchy, nutritious treat">
+                              <i class="ri-pencil-line ri-16px lh-1 scaleX-n1-rtl"></i>
+                            </button>
+
+                            <!-- Delete Button -->
+                            <button class="btn btn-outline-danger d-flex align-items-center">
+                              <i class="ri-delete-bin-line ri-16px lh-1 scaleX-n1-rtl"></i>
+                            </button>
+
+                            <!-- Edit Button -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="editExerciseModal" tabindex="-1" aria-labelledby="editExerciseModalLabel"
+            aria-hidden="true"   data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content rounded-3 shadow">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editExerciseModalLabel">
+                    Edit Exercise
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="editExerciseForm">
+                    <div class="mb-3">
+                      <label for="exerciseName" class="form-label">Exercise Name</label>
+                      <input type="text" class="form-control" id="exerciseName" value="Jumping Jacks" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="exerciseDesc" class="form-label">Description</label>
+                      <textarea class="form-control" id="exerciseDesc" rows="3">
+A cardio warm-up that increases heart rate.</textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exerciseIntensity" class="form-label">Intensity</label>
+                      <select class="form-select" id="exerciseIntensity">
+                        <option value="Low" selected>Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exerciseDuration" class="form-label">Duration</label>
+                      <input type="text" class="form-control" id="exerciseDuration" value="1-2 minutes" />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                      Save Changes
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="editRecipeModal" tabindex="-1" aria-labelledby="editRecipeModalLabel"
+            aria-hidden="true"  data-bs-backdrop="static" data-bs-keyboard="false"
+            >
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content rounded-3 shadow">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editRecipeModalLabel">Edit Recipe</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                  <form id="editRecipeForm">
+                    <div class="mb-3">
+                      <label for="recipeName" class="form-label">Recipe Name</label>
+                      <input type="text" class="form-control" id="recipeName" required />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="recipeDesc" class="form-label">Description</label>
+                      <textarea class="form-control" id="recipeDesc" rows="3" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="recipeDuration" class="form-label">Duration (e.g. 30-45 minutes)</label>
+                      <input type="text" class="form-control" id="recipeDuration" required />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="recipeSteps" class="form-label">Recipe Method (Each step on a new line)</label>
+                      <textarea class="form-control" id="recipeSteps" rows="6"
+                        placeholder="1. Chop onions&#10;2. Sauté in oil&#10;3. Add spices..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="exerciseModal" tabindex="-1" aria-labelledby="exerciseModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exerciseModalLabel">Add New Recipe</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+          
+                <form id="addRecipeForm">
+                  <div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
+                    <div class="mb-3">
+                      <label for="recipeImage" class="form-label">Recipe Image</label>
+                      <input type="file" class="form-control" id="recipeImage" accept="image/*" />
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="recipeNameNew" class="form-label">Recipe Name</label>
+                      <input type="text" class="form-control" id="recipeNameNew" placeholder="e.g. Grilled Chicken Salad" required />
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="recipeDescNew" class="form-label">Description</label>
+                      <textarea class="form-control" id="recipeDescNew" rows="3" placeholder="Briefly describe the recipe..." required></textarea>
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="recipeIntensityNew" class="form-label">Intensity</label>
+                      <select class="form-select" id="recipeIntensityNew" required>
+                        <option value="">Select Intensity</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                      </select>
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="recipeDurationNew" class="form-label">Duration</label>
+                      <input type="text" class="form-control" id="recipeDurationNew" placeholder="e.g. 30-45 minutes" required />
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="recipeStepsNew" class="form-label">Recipe Method (Steps)</label>
+                      <textarea
+                        class="form-control"
+                        id="recipeStepsNew"
+                        rows="6"
+                        placeholder="1. Chop onions&#10;2. Sauté in oil&#10;3. Add spices..."
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+          
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-success w-100">Add Recipe</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overlay -->
+          <div id="overlay" class="overlay"></div>
+          <!-- / Content -->
+          <!-- / Content -->
+
+          <!-- Footer -->
+          <footer class="content-footer footer bg-footer-theme">
+            <div class="container-xxl">
+              <div
+                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                <div class="text-body mb-2 mb-md-0">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  , made with <span class="text-danger"><i class="tf-icons ri-heart-fill"></i></span> by
+                  <a href="https://pixinvent.com" target="_blank" class="footer-link">Pixinvent</a>
+                </div>
+                <div class="d-none d-lg-inline-block">
+                  <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
+                    target="_blank">License</a>
+                  <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More
+                    Themes</a>
+
+                  <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/" target="_blank"
+                    class="footer-link me-4">Documentation</a>
+
+                  <a href="https://pixinvent.ticksy.com/" target="_blank"
+                    class="footer-link d-none d-sm-inline-block">Support</a>
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!-- / Footer -->
+
+          <div class="content-backdrop fade"></div>
+        </div>
+        <!-- Content wrapper -->
+      </div>
+      <!-- / Layout page -->
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+  </div>
+  <!-- / Layout wrapper -->
+
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="/assets/vendor/libs/popper/popper.js"></script>
+  <script src="/assets/vendor/js/bootstrap.js"></script>
+  <script src="/assets/vendor/libs/node-waves/node-waves.js"></script>
+  <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="/assets/vendor/libs/hammer/hammer.js"></script>
+  <script src="/assets/vendor/libs/i18n/i18n.js"></script>
+  <script src="/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+  <script src="/assets/vendor/js/menu.js"></script>
+
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+  <script src="/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+  <script src="/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
+  <!-- Main JS -->
+  <script src="/assets/js/main.js"></script>
+
+  <!-- Page JS -->
+  <script src="/assets/js/app-logistics-dashboard.js"></script>
+
+  <!-- Page JS -->
+  <script src="/assets/js/dashboards-crm.js"></script>
+
+  <script>
+    // Select all answer buttons
+    document.querySelectorAll('.answer-btn').forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const parent = btn.closest('.timeline-event');
+        const answerForm = parent.querySelector('.answer-form');
+
+        // Toggle the form visibility
+        const isVisible = answerForm.style.display === 'block';
+        answerForm.style.display = isVisible ? 'none' : 'block';
+        btn.textContent = isVisible ? 'Answer' : 'Cancel';
+      });
+    });
+
+    // Select all submit buttons
+    document.querySelectorAll('.submit-answer').forEach((submitBtn) => {
+      submitBtn.addEventListener('click', function () {
+        const parent = submitBtn.closest('.answer-form');
+        const inputField = parent.querySelector('input');
+        const answer = inputField.value.trim();
+
+        if (answer) {
+          console.log('Submitted Answer:', answer);
+          alert('Answer submitted successfully!');
+          inputField.value = '';
+          // Optional: Hide the form again
+          parent.style.display = 'none';
+          const answerBtn = parent.closest('.timeline-event').querySelector('.answer-btn');
+          answerBtn.textContent = 'Answer';
+        } else {
+          alert('Please type an answer before submitting.');
+        }
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".toggle-comments").forEach(function (el) {
+        el.addEventListener("click", function () {
+          const cardBody = el.closest(".card-body");
+          const commentSection = cardBody.querySelector(".comments-section");
+
+          if (commentSection) {
+            const isVisible = commentSection.style.display === "block";
+            commentSection.style.display = isVisible ? "none" : "block";
+          }
+        });
+      });
+    });
+
+
+    document.querySelectorAll('.report-delete-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const postId = this.getAttribute('data-post-id');
+
+        if (confirm(`Are you sure you want to report and delete this post ${postId} ?`)) {
+          alert(`Post ${postId} reported and deleted.`);
+          // Place your logic here — e.g., hide the post, send a request, etc.
+          // document.getElementById(`post-${postId}`).remove();
+        } else {
+          console.log("User canceled.");
+        }
+      });
+    });
+  </script>
+
+
+
+  <script>
+    document
+      .getElementById("editExerciseForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // You can replace this with your update AJAX/fetch call
+        bootstrap.Modal.getInstance(
+          document.getElementById("editExerciseModal")
+        ).hide();
+        alert("Exercise updated successfully!");
+      });
+  </script>
+
+  <script>
+    const openBtn = document.getElementById("openExerciseForm");
+    const closeBtn = document.getElementById("closeSidebar");
+    const sidebar = document.getElementById("exerciseSidebar");
+    const overlay = document.getElementById("overlay");
+
+    openBtn.addEventListener("click", () => {
+      sidebar.classList.add("active");
+      overlay.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+
+    overlay.addEventListener("click", () => {
+      // Optional: Do nothing or close if needed
+    });
+
+    // Handle form submission
+    document
+      .getElementById("exerciseForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Process form data here
+
+        // Close the sidebar
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+        alert("Exercise Added!");
+      });
+  </script>
+  <script>
+    document
+      .getElementById("editExerciseForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        bootstrap.Modal.getInstance(
+          document.getElementById("editExerciseModal")
+        ).hide();
+        alert("Exercise updated successfully!");
+      });
+  </script>
+
+  <script>
+    document.getElementById("openRecipeModal").addEventListener("click", function (e) {
+      e.preventDefault();
+      var myModal = new bootstrap.Modal(document.getElementById('recipeModal'));
+      myModal.show();
+    });
+  </script>
+
+  <script>
+    document.getElementById("openMushroomModal").addEventListener("click", function (e) {
+      e.preventDefault();
+      var myModal = new bootstrap.Modal(document.getElementById('mushroomModal'));
+      myModal.show();
+    });
+  </script>
+
+  <script>
+    document.getElementById("openSproutsModal").addEventListener("click", function (e) {
+      e.preventDefault();
+      var myModal = new bootstrap.Modal(document.getElementById('sproutsModal'));
+      myModal.show();
+    });
+  </script>
+
+
+  <script>
+    document.querySelectorAll(".edit-recipe-btn").forEach((button) => {
+      button.addEventListener("click", function () {
+        document.getElementById("recipeName").value = this.getAttribute("data-name") || "";
+        document.getElementById("recipeDesc").value = this.getAttribute("data-desc") || "";
+        document.getElementById("recipeDuration").value = this.getAttribute("data-duration") || "";
+        document.getElementById("recipeSteps").value = (this.getAttribute("data-steps") || "").split("\\n").join("\n");
+      });
+    });
+  </script>
+
+
+<script>
+  document.getElementById("addRecipeForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Example of getting form values
+    const name = document.getElementById("recipeNameNew").value;
+    const desc = document.getElementById("recipeDescNew").value;
+    const duration = document.getElementById("recipeDurationNew").value;
+    const steps = document.getElementById("recipeStepsNew").value;
+    const intensity = document.getElementById("recipeIntensityNew").value;
+
+    // You can also access the image file via:
+    // const file = document.getElementById("recipeImage").files[0];
+
+    console.log("New Recipe:", { name, desc, duration, steps, intensity });
+
+    // You can add logic here to POST to server or dynamically inject into page
+    alert("New Recipe Added!");
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+</script>
+
+
+
+
+</body>
+
+</html>

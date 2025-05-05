@@ -882,7 +882,7 @@
                         <div class="border rounded-4 p-5">
                           <!-- Add Exercise Plan Form -->
                           <h6>Add Exercise Plan</h6>
-                          <form>
+                          <form id="exerciseForm"> 
                             <div class="mb-3">
                               <label for="planImage" class="form-label">Plan Image</label>
                               <input type="file" class="form-control" id="planImage" name="planImage"
@@ -966,20 +966,9 @@
                     document.write(new Date().getFullYear());
                   </script>
                   , made with <span class="text-danger"><i class="tf-icons ri-heart-fill"></i></span> by
-                  <a href="https://pixinvent.com" target="_blank" class="footer-link">Pixinvent</a>
+                  <a href="https://www.coinagesoft.com/" target="_blank" class="footer-link">Coinage.in</a>
                 </div>
-                <div class="d-none d-lg-inline-block">
-                  <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                    target="_blank">License</a>
-                  <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More
-                    Themes</a>
-
-                  <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/" target="_blank"
-                    class="footer-link me-4">Documentation</a>
-
-                  <a href="https://pixinvent.ticksy.com/" target="_blank"
-                    class="footer-link d-none d-sm-inline-block">Support</a>
-                </div>
+               
               </div>
             </div>
           </footer>
@@ -1091,6 +1080,19 @@
       });
     });
   </script>
+
+<script>
+  document.getElementById("exerciseForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent the default form submission (optional if you don’t want the page to reload)
+
+    // Show alert message
+    alert("Exercise plan is added");
+
+    // You can optionally submit the form here manually if needed:
+    // this.submit();
+  });
+</script>
+
 
 <script>
   const modalElement = document.getElementById('editPlanModal');

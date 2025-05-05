@@ -841,7 +841,8 @@
                           <h6 class="mb-0">18</h6>
                         </div>
                         <div class="text-center" style="width: 15%;">
-                          <button class="btn btn-sm btn-outline-primary">See</button>
+                          <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="JohnDoe">See</button>
+
                         </div>
                       </div>
 
@@ -860,7 +861,7 @@
                           <div><strong>Likes:</strong> 120</div>
                           <div><strong>Comments:</strong> 18</div>
                           <div class="mt-2">
-                            <button class="btn btn-sm btn-outline-primary">See</button>
+                            <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="JaneDoe">See</button>
                           </div>
                         </div>
                       </div>
@@ -888,7 +889,8 @@
                           <h6 class="mb-0">24</h6>
                         </div>
                         <div class="text-center" style="width: 15%;">
-                          <button class="btn btn-sm btn-outline-primary">See</button>
+                          <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="JohnDoe">See</button>
+
                         </div>
                       </div>
 
@@ -907,7 +909,8 @@
                           <div><strong>Likes:</strong> 95</div>
                           <div><strong>Comments:</strong> 24</div>
                           <div class="mt-2">
-                            <button class="btn btn-sm btn-outline-primary">See</button>
+                            <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="JohnDoe">See</button>
+
                           </div>
                         </div>
                       </div>
@@ -935,7 +938,8 @@
                           <h6 class="mb-0">14</h6>
                         </div>
                         <div class="text-center" style="width: 15%;">
-                          <button class="btn btn-sm btn-outline-primary">See</button>
+                          <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="EmilyStone">See</button>
+
                         </div>
                       </div>
 
@@ -981,7 +985,7 @@
                           <h6 class="mb-0">24</h6>
                         </div>
                         <div class="text-center" style="width: 15%;">
-                          <button class="btn btn-sm btn-outline-primary">See</button>
+                          <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="MikeSmith">See</button>
                         </div>
                       </div>
 
@@ -1196,20 +1200,9 @@
                     document.write(new Date().getFullYear());
                   </script>
                   , made with <span class="text-danger"><i class="tf-icons ri-heart-fill"></i></span> by
-                  <a href="https://pixinvent.com" target="_blank" class="footer-link">Pixinvent</a>
+                  <a href="https://www.coinagesoft.com/" target="_blank" class="footer-link">Coinage.in</a>
                 </div>
-                <div class="d-none d-lg-inline-block">
-                  <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                    target="_blank">License</a>
-                  <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More
-                    Themes</a>
-
-                  <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/" target="_blank"
-                    class="footer-link me-4">Documentation</a>
-
-                  <a href="https://pixinvent.ticksy.com/" target="_blank"
-                    class="footer-link d-none d-sm-inline-block">Support</a>
-                </div>
+               
               </div>
             </div>
           </footer>
@@ -1224,6 +1217,20 @@
 
     <!-- Overlay -->
     <div class="layout-overlay layout-menu-toggle"></div>
+    <!-- Modal -->
+<div class="modal fade" id="postsModal" tabindex="-1" aria-labelledby="postsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="postsModalLabel">User Posts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalPostsContent">
+        <!-- Posts will be loaded here -->
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Drag Target Area To SlideIn Menu On Small Screens -->
     <div class="drag-target"></div>
@@ -1232,6 +1239,52 @@
 
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const seeButtons = document.querySelectorAll('.see-posts-btn');
+  
+      seeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const username = this.dataset.username;
+          const postsHtml = getPostsHtml(username);
+          document.getElementById('modalPostsContent').innerHTML = postsHtml;
+          new bootstrap.Modal(document.getElementById('postsModal')).show();
+        });
+      });
+  
+      // Dummy data
+      function getPostsHtml(username) {
+       const dummyPosts = {
+  'JohnDoe': [
+    'The benefits of daily morning walks',
+    'Stretching routines to improve flexibility',
+    'How hydration affects muscle recovery'
+  ],
+  'JaneDoe': [
+    'Home workouts for busy professionals',
+    'Understanding macros in a fitness diet',
+    'Tips to stay motivated during weight loss'
+  ],
+  'MikeSmith': [
+    'Building a sustainable workout routine',
+    'The importance of rest days in fitness',
+    'Top 5 foods for muscle gain'
+  ],
+  'EmilyStone': [
+    'Mental health benefits of regular exercise',
+    'Yoga poses to reduce stress and anxiety',
+    'Tracking your fitness progress effectively'
+  ]
+};
+
+  
+        const posts = dummyPosts[username] || ['No posts found.'];
+        return posts.map(p => `<p>• ${p}</p>`).join('');
+      }
+    });
+  </script>
   <script src="/assets/vendor/libs/jquery/jquery.js"></script>
   <script src="/assets/vendor/libs/popper/popper.js"></script>
   <script src="/assets/vendor/js/bootstrap.js"></script>

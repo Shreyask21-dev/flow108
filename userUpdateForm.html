@@ -106,12 +106,12 @@
                         </a>
                     </li>
 
-                    <li class="menu-item">
+                    <!-- <li class="menu-item">
                         <a href="./message.html" class="menu-link ">
                             <i class="menu-icon ri-message-2-line"></i>
                             <div data-i18n="Message">Message</div>
                         </a>
-                    </li>
+                    </li> -->
 
 
                     <li class="menu-item ">
@@ -1234,22 +1234,7 @@
         $('#appointmentsTable').DataTable({
             responsive: true,
             dom: '<"d-flex flex-column flex-md-row justify-content-between align-items-center mb-3"fB>rtip',
-            buttons: [
-                {
-                    text: 'Add Prescription',
-                    className: 'btn btn-success me-2',
-                    action: function () {
-                        // Use Bootstrap's modal API to show the modal
-                        var modal = new bootstrap.Modal(document.getElementById('prescriptionModal'));
-                        modal.show();
-                    }
-                },
-                {
-                    extend: 'excelHtml5',
-                    text: 'Export to Excel',
-                    className: 'btn btn-primary'
-                }
-            ]
+           
         });
     </script>
     

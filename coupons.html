@@ -694,7 +694,7 @@
                                     </li>
                                     <li>
                                         <div class="d-grid px-4 pt-2 pb-1">
-                                            <a class="btn btn-sm btn-danger d-flex" href="index.html"
+                                            <a class="btn btn-sm btn-outline-danger d-flex" href="index.html"
                                                 target="_blank">
                                                 <small class="align-middle">Logout</small>
                                                 <i class="ri-logout-box-r-line ms-2 ri-16px"></i>
@@ -851,12 +851,12 @@
                                                             <td class="text-end fw-medium">31-Dec-2023</td>
                                                             <td>New Subscribers</td>
                                                             <td>
-                                                                <button class="btn btn-sm btn-info"
+                                                                <button class="btn btn-sm btn-outline-primary btn-outline-primary"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#editCouponModal"
                                                                     title="Edit Coupon"><i
                                                                         class="ri-edit-2-line"></i></button>
-                                                                <button class="btn btn-sm btn-danger"
+                                                                <button class="btn btn-sm btn-outline-danger"
                                                                     title="Delete Coupon"><i
                                                                         class="ri-delete-bin-line"></i></button>
                                                             </td>
@@ -871,12 +871,12 @@
                                                             <td class="text-end fw-medium">31-Jan-2024</td>
                                                             <td>Enterprise Customers</td>
                                                             <td>
-                                                                <button class="btn btn-sm btn-info"
+                                                                <button class="btn btn-sm btn-outline-primary"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#editCouponModal"
                                                                     title="Edit Coupon"><i
                                                                         class="ri-edit-2-line"></i></button>
-                                                                <button class="btn btn-sm btn-danger"
+                                                                <button class="btn btn-sm btn-outline-danger"
                                                                     title="Delete Coupon"><i
                                                                         class="ri-delete-bin-line"></i></button>
                                                             </td>
@@ -891,12 +891,12 @@
                                                             <td class="text-end fw-medium">30-Sep-2023</td>
                                                             <td>Affiliate Partners</td>
                                                             <td>
-                                                                <button class="btn btn-sm btn-info"
+                                                                <button class="btn btn-sm btn-outline-primary"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#editCouponModal"
                                                                     title="Edit Coupon"><i
                                                                         class="ri-edit-2-line"></i></button>
-                                                                <button class="btn btn-sm btn-danger"
+                                                                <button class="btn btn-sm btn-outline-danger"
                                                                     title="Delete Coupon"><i
                                                                         class="ri-delete-bin-line"></i></button>
                                                             </td>
@@ -911,12 +911,12 @@
                                                             <td class="text-end fw-medium">N/A</td>
                                                             <td>Content Creators</td>
                                                             <td>
-                                                                <button class="btn btn-sm btn-info"
+                                                                <button class="btn btn-sm btn-outline-primary"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#editCouponModal"
                                                                     title="Edit Coupon"><i
                                                                         class="ri-edit-2-line"></i></button>
-                                                                <button class="btn btn-sm btn-danger"
+                                                                <button class="btn btn-sm btn-outline-danger"
                                                                     title="Delete Coupon"><i
                                                                         class="ri-delete-bin-line"></i></button>
                                                             </td>
@@ -931,12 +931,12 @@
                                                             <td class="text-end fw-medium">15-Dec-2023</td>
                                                             <td>Seasonal Offer</td>
                                                             <td>
-                                                                <button class="btn btn-sm btn-info"
+                                                                <button class="btn btn-sm btn-outline-primary"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#editCouponModal"
                                                                     title="Edit Coupon"><i
                                                                         class="ri-edit-2-line"></i></button>
-                                                                <button class="btn btn-sm btn-danger"
+                                                                <button class="btn btn-sm btn-outline-danger"
                                                                     title="Delete Coupon"><i
                                                                         class="ri-delete-bin-line"></i></button>
                                                             </td>
@@ -951,12 +951,12 @@
                                                             <td class="text-end fw-medium">30-Jun-2023</td>
                                                             <td>Limited Time</td>
                                                             <td>
-                                                                <button class="btn btn-sm btn-info"
+                                                                <button class="btn btn-sm btn-outline-primary"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#editCouponModal"
                                                                     title="Edit Coupon"><i
                                                                         class="ri-edit-2-line"></i></button>
-                                                                <button class="btn btn-sm btn-danger"
+                                                                <button class="btn btn-sm btn-outline-danger"
                                                                     title="Delete Coupon"><i
                                                                         class="ri-delete-bin-line"></i></button>
                                                             </td>
@@ -1125,6 +1125,22 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+    <script>
+        // Attach click listener to all delete buttons
+        document.querySelectorAll('.btn-outline-danger').forEach(button => {
+          button.addEventListener('click', function () {
+            const confirmDelete = confirm('Are you sure you want to delete this answer?');
+      
+            if (confirmDelete) {
+              // Find the timeline item and remove it
+              const timelineItem = this.closest('.timeline-item');
+              if (timelineItem) {
+                timelineItem.remove();
+              }
+            }
+          });
+        });
+      </script>
     <script src="/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/assets/vendor/libs/popper/popper.js"></script>
     <script src="/assets/vendor/js/bootstrap.js"></script>

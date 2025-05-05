@@ -1230,7 +1230,23 @@
     <div class="drag-target"></div>
     </div>
     <!-- / Layout wrapper -->
-
+    <script>
+        // Attach click listener to all delete buttons
+        document.querySelectorAll('.btn-outline-danger').forEach(button => {
+          button.addEventListener('click', function () {
+            const confirmDelete = confirm('Are you sure you want to delete this answer?');
+      
+            if (confirmDelete) {
+              // Find the timeline item and remove it
+              const timelineItem = this.closest('.timeline-item');
+              if (timelineItem) {
+                timelineItem.remove();
+              }
+            }
+          });
+        });
+      </script>
+      
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="/assets/vendor/libs/jquery/jquery.js"></script>

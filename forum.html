@@ -841,7 +841,9 @@
                           <h6 class="mb-0">18</h6>
                         </div>
                         <div class="text-center" style="width: 15%;">
-                          <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="JohnDoe">See</button>
+                          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#forumPostsModal">
+                            See
+                          </button>
 
                         </div>
                       </div>
@@ -861,7 +863,9 @@
                           <div><strong>Likes:</strong> 120</div>
                           <div><strong>Comments:</strong> 18</div>
                           <div class="mt-2">
-                            <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="JaneDoe">See</button>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#forumPostsModal">
+                              See
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -889,7 +893,9 @@
                           <h6 class="mb-0">24</h6>
                         </div>
                         <div class="text-center" style="width: 15%;">
-                          <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="JohnDoe">See</button>
+                          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#forumPostsModal">
+                            See
+                          </button>
 
                         </div>
                       </div>
@@ -938,7 +944,9 @@
                           <h6 class="mb-0">14</h6>
                         </div>
                         <div class="text-center" style="width: 15%;">
-                          <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="EmilyStone">See</button>
+                          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#forumPostsModal">
+                            See
+                          </button>
 
                         </div>
                       </div>
@@ -985,7 +993,10 @@
                           <h6 class="mb-0">24</h6>
                         </div>
                         <div class="text-center" style="width: 15%;">
-                          <button class="btn btn-outline-info btn-sm see-posts-btn" data-username="MikeSmith">See</button>
+                          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#forumPostsModal">
+                            See
+                          </button>
+                          
                         </div>
                       </div>
 
@@ -1004,7 +1015,10 @@
                           <div><strong>Likes:</strong> 60</div>
                           <div><strong>Comments:</strong> 30</div>
                           <div class="mt-2">
-                            <button class="btn btn-sm btn-outline-primary">See</button>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#forumPostsModal">
+                              See
+                            </button>
+                            
                           </div>
                         </div>
                       </div>
@@ -1176,6 +1190,10 @@
                       placeholder="Brief description of the post"></textarea>
                   </div>
                   <div class="mb-3">
+                    <label for="postUrl" class="form-label">URL</label>
+                    <input type="url" class="form-control" id="postUrl" placeholder="Enter related URL (optional)" />
+                  </div>
+                  <div class="mb-3">
                     <label for="postComment" class="form-label">Comment</label>
                     <input type="text" class="form-control" id="postComment" placeholder="Add a comment (optional)" />
                   </div>
@@ -1187,6 +1205,7 @@
             </div>
           </div>
         </div>
+        
         
 
           <!-- Footer -->
@@ -1218,19 +1237,151 @@
     <!-- Overlay -->
     <div class="layout-overlay layout-menu-toggle"></div>
     <!-- Modal -->
-<div class="modal fade" id="postsModal" tabindex="-1" aria-labelledby="postsModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<!-- Forum Posts Modal -->
+<div class="modal fade" id="forumPostsModal" tabindex="-1" aria-labelledby="forumPostsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="postsModalLabel">User Posts</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-header ">
+        <h5 class="modal-title">Forum Posts</h5>
+        <div class="d-flex align-items-center ms-auto gap-2">
+          <input type="text" class="form-control form-control-sm" id="postSearch" placeholder="Search..." style="min-width: 200px;" />
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
       </div>
-      <div class="modal-body" id="modalPostsContent">
-        <!-- Posts will be loaded here -->
+
+      <div class="modal-body">
+        <div class="row" id="postContainer">
+          <!-- Your existing post cards (copied from your provided HTML) go here -->
+          <!-- Example post below, replicate or load dynamically -->
+          <div class="col-md-4 mb-4 post-card">
+            <div class="card h-100">
+              <div class="card-body">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <img src="/assets/img/avatars/woman-4127336_1280.jpg" alt="User"
+                    style="border-radius: 50%; width: 50px; height: 50px;">
+                  <div>
+                    <h6 style="margin: 0; font-size: 16px;">Rahul Verma</h6>
+                    <small>2 hours ago</small>
+                  </div>
+                </div>
+                <p style="font-size: 14px;">Exploring the beauty of nature 🌿 — such a peaceful moment!</p>
+                <img src="/assets/img/avatars/the-worthy-goods-Tuy2n9md0AI-unsplash.jpg" alt="Post"
+                  style="width: 100%; border-radius: 8px;">
+
+                  <div
+                          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                          <div style="display: flex; gap: 16px; font-size: 14px; color: #6c757d;">
+                            <span><i class="bi bi-heart-fill"></i> 120 Likes</span>
+                            <span><i class="bi bi-chat-left-dots-fill"></i> 34 Comments</span>
+                          </div>
+                          <div class="position-relative">
+                            <button onclick="toggleDropdown(this)"
+                              class="btn btn-sm text-muted p-0 border-0 bg-transparent fs-3">
+                              ⋯
+                            </button>
+                            <div class="admin-dropdown dropdown-menu show"
+                              style="display: none; position: absolute; top: 24px; right: 0;">
+                              <a href="./updatePost.html" class="dropdown-item">
+                                Update Post
+                              </a>
+                              <a href="javascript:void(0);" onclick="alert('Delete clicked')"
+                                class="dropdown-item text-danger">
+                                Delete Post
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                  
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 post-card">
+            <div class="card h-100">
+              <div class="card-body">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <img src="/assets/img/avatars/woman-4127336_1280.jpg" alt="User"
+                    style="border-radius: 50%; width: 50px; height: 50px;">
+                  <div>
+                    <h6 style="margin: 0; font-size: 16px;">Rahul Verma</h6>
+                    <small>2 hours ago</small>
+                  </div>
+                </div>
+                <p style="font-size: 14px;">Exploring the beauty of nature 🌿 — such a peaceful moment!</p>
+                <img src="/assets/img/avatars/the-worthy-goods-Tuy2n9md0AI-unsplash.jpg" alt="Post"
+                  style="width: 100%; border-radius: 8px;">
+                  <div
+                          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                          <div style="display: flex; gap: 16px; font-size: 14px; color: #6c757d;">
+                            <span><i class="bi bi-heart-fill"></i> 120 Likes</span>
+                            <span><i class="bi bi-chat-left-dots-fill"></i> 34 Comments</span>
+                          </div>
+                          <div class="position-relative">
+                            <button onclick="toggleDropdown(this)"
+                              class="btn btn-sm text-muted p-0 border-0 bg-transparent fs-3">
+                              ⋯
+                            </button>
+                            <div class="admin-dropdown dropdown-menu show"
+                              style="display: none; position: absolute; top: 24px; right: 0;">
+                              <a href="./updatePost.html" class="dropdown-item">
+                                Update Post
+                              </a>
+                              <a href="javascript:void(0);" onclick="alert('Delete clicked')"
+                                class="dropdown-item text-danger">
+                                Delete Post
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 post-card">
+            <div class="card h-100">
+              <div class="card-body">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <img src="/assets/img/avatars/woman-4127336_1280.jpg" alt="User"
+                    style="border-radius: 50%; width: 50px; height: 50px;">
+                  <div>
+                    <h6 style="margin: 0; font-size: 16px;">Rahul Verma</h6>
+                    <small>2 hours ago</small>
+                  </div>
+                </div>
+                <p style="font-size: 14px;">Exploring the beauty of nature 🌿 — such a peaceful moment!</p>
+                <img src="/assets/img/avatars/the-worthy-goods-Tuy2n9md0AI-unsplash.jpg" alt="Post"
+                  style="width: 100%; border-radius: 8px;">
+                  <div
+                          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                          <div style="display: flex; gap: 16px; font-size: 14px; color: #6c757d;">
+                            <span><i class="bi bi-heart-fill"></i> 120 Likes</span>
+                            <span><i class="bi bi-chat-left-dots-fill"></i> 34 Comments</span>
+                          </div>
+                          <div class="position-relative">
+                            <button onclick="toggleDropdown(this)"
+                              class="btn btn-sm text-muted p-0 border-0 bg-transparent fs-3">
+                              ⋯
+                            </button>
+                            <div class="admin-dropdown dropdown-menu show"
+                              style="display: none; position: absolute; top: 24px; right: 0;">
+                              <a href="./updatePost.html" class="dropdown-item">
+                                Update Post
+                              </a>
+                              <a href="javascript:void(0);" onclick="alert('Delete clicked')"
+                                class="dropdown-item text-danger">
+                                Delete Post
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+              </div>
+            </div>
+          </div>
+          <!-- Repeat more post-cards -->
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
     <!-- Drag Target Area To SlideIn Menu On Small Screens -->
     <div class="drag-target"></div>
@@ -1242,49 +1393,15 @@
 
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const seeButtons = document.querySelectorAll('.see-posts-btn');
-  
-      seeButtons.forEach(button => {
-        button.addEventListener('click', function () {
-          const username = this.dataset.username;
-          const postsHtml = getPostsHtml(username);
-          document.getElementById('modalPostsContent').innerHTML = postsHtml;
-          new bootstrap.Modal(document.getElementById('postsModal')).show();
-        });
+    document.getElementById("postSearch").addEventListener("input", function () {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll("#postContainer .post-card").forEach(card => {
+        const content = card.innerText.toLowerCase();
+        card.style.display = content.includes(query) ? "" : "none";
       });
-  
-      // Dummy data
-      function getPostsHtml(username) {
-       const dummyPosts = {
-  'JohnDoe': [
-    'The benefits of daily morning walks',
-    'Stretching routines to improve flexibility',
-    'How hydration affects muscle recovery'
-  ],
-  'JaneDoe': [
-    'Home workouts for busy professionals',
-    'Understanding macros in a fitness diet',
-    'Tips to stay motivated during weight loss'
-  ],
-  'MikeSmith': [
-    'Building a sustainable workout routine',
-    'The importance of rest days in fitness',
-    'Top 5 foods for muscle gain'
-  ],
-  'EmilyStone': [
-    'Mental health benefits of regular exercise',
-    'Yoga poses to reduce stress and anxiety',
-    'Tracking your fitness progress effectively'
-  ]
-};
-
-  
-        const posts = dummyPosts[username] || ['No posts found.'];
-        return posts.map(p => `<p>• ${p}</p>`).join('');
-      }
     });
   </script>
+  
   <script src="/assets/vendor/libs/jquery/jquery.js"></script>
   <script src="/assets/vendor/libs/popper/popper.js"></script>
   <script src="/assets/vendor/js/bootstrap.js"></script>
